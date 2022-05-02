@@ -28,9 +28,9 @@
         mode: 600
       with_fileglob:
         - /ft_info/freqtrader_info/strats/*
-    - name: Clean Up Repo Folder
-      become: yes
-      file:
-        state: absent
-        path: /ft_info/freqtrade_public
+#    - name: Clean Up Repo Folder
+#      become: yes
+#      file:
+#        state: absent
+#        path: /ft_info/freqtrade_public
 
