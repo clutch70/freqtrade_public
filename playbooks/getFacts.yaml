@@ -1,0 +1,7 @@
+
+- name: Show Ansible Facts
+  hosts: cnhqtb400.dmz.cusnet.net
+  tasks:
+    - name: Get Facts
+      ansible.builtin.debug:
+        var: ansible_facts

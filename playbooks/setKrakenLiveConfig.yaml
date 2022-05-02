@@ -1,0 +1,16 @@
+
+- name: Download Kraken Live Config to FreqTrade Bots
+  hosts: genOneBots
+  tasks:
+    - name: Remove Old Config
+      file:
+        path: /home/smurf/freqtrade/user_data/config.json
+        state: absent
+    - name: Download
+      get_url:
+        url: https://raw.githubusercontent.com/iterativv/NostalgiaForInfinity/main/NostalgiaForInfinityX.py
+        dest: /home/smurf/freqtrade/user_data/strategies/NostalgiaForInfinity.py
+        mode: '0440'
+    - name: Update Config Password
+      command: sed -i 's/.*password.*/        \x22password\x22: \x22password\x22/' /home/smurf/freqtrade/config.json
+      become: yes

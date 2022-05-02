@@ -1,0 +1,6 @@
+
+- name: Download NostalgiaForInfinityX to FreqTrade Bots
+  hosts: genOneBots
+  tasks:
+    - name: Update Config
+      command: sed -i 's/number_assets.*/"number_assets"&#58 80,/g' /home/smurf/freqtrade/user_data/config.json

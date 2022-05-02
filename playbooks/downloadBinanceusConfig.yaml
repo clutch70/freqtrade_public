@@ -1,0 +1,11 @@
+
+- name: Download Binanceus Config
+  hosts: cnhqtb403, cnhqtb501
+  tasks:
+    - name: Delete Old Config
+      command: rm /home/smurf/freqtrade/user_data/config.json
+    - name: Download New Config
+      get_url:
+        url: http://cnhqcntb300.cusnet.net/assets/freqtrade-configs/binanceuse_get_all_pairs_config.json
+        dest: /home/smurf/freqtrade/user_data/config.json
+        mode: '0440'

@@ -1,0 +1,74 @@
+#basic first setup and prereqs
+sudo apt-get update && sudo apt-get upgrade
+sudo apt-get install curl
+sudo apt-get install ssh
+sudo apt-get install open-vm-tools
+#get docker
+curl -fsSL https://get.docker.com -o get-docker.sh
+sh get-docker.sh
+sudo apt update && sudo apt install docker-compose -y
+sudo usermod -a -G docker smurf #change smurf to the username
+sudo reboot now
+mkdir freqtrade 
+cd freqtrade 
+curl https://raw.githubusercontent.com/freqtrade/freqtrade/stable/docker-compose.yml -o docker-compose.yml 
+docker-compose pull
+
+#initial freqtrade setup
+docker-compose run --rm freqtrade create-userdir --userdir user_data
+docker-compose run --rm freqtrade new-config --config user_data/config.json #launches interactive menu prompts
+#since using docker, using 0.0.0.0 for the API address in the prompts
+nano docker-compose.yml #edit the ports section so it reads "8080:8080"
+
+
+#prepare Ubuntu for cloning
+
+sudo sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.cfg
+sudo truncate -s0 /etc/hostname
+sudo hostnamectl set-hostname localhost
+sudo rm /etc/netplan/50-cloud-init.yaml
+cat /dev/null > ~/.bash_history && history -c
+sudo shutdown now
+
+
+# fix weird extra long MAC address thing in ubuntu 18.04 DHCP leases
+#do this in /etc/dhcp/dhclient.conf
+send dhcp-client-identifier = hardware;
+
+
+#netplan yaml to set static IP and configure search domains
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    ens160:
+     dhcp4: no
+     addresses: [10.10.20.70/24]
+     gateway4: 10.10.20.1
+     nameservers:
+       addresses: [10.10.10.25,10.10.10.225]
+       search:
+         - dmz.cusnet.net
+         - ad.cusnet.net
+         - cusnet.net
+		 
+		 
+
+# update docker-compose config file with new strat
+
+sed -i 's/strategy.*/strategy NostalgiaForInfinityX/g' /home/smurf/freqtrade/docker-compose.yml
+
+
+#freqtrade download data stuff
+
+docker-compose run --rm freqtrade download-data
+
+docker-compose run --rm freqtrade download-data --exchange kraken -t 5m
+
+docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kraken -t 5m --timerange 20211001-20220101 --dl-trades
+
+
+
+
+#Find password line in config.json and update it
+sed 's/.*password.*/        \x22password\x22: \x22password\x22/'

@@ -1,0 +1,9 @@
+
+- name: Download NostalgiaForInfinityX to FreqTrade Bots
+  hosts: genOneBots
+  tasks:
+    - name: Download
+      get_url:
+        url: http://cnhqcntb300.cusnet.net/assets/strategies/NostalgiaForInfinityX.py
+        dest: /home/smurf/freqtrade/user_data/strategies/NostalgiaForInfinity.py
+        mode: '0440'

@@ -1,0 +1,13 @@
+
+- name: Download NostalgiaForInfinityX to FreqTrade Bots
+  hosts: genOneBots
+  tasks:
+    - name: Download
+      get_url:
+        url: http://cnhqcntb300.cusnet.net/assets/strategies/NostalgiaForInfinityX.py
+        dest: /home/smurf/freqtrade/user_data/strategies/NostalgiaForInfinity.py
+        mode: '0440'
+    - name: Update Docker File
+      command: sed -i 's/strategy.*/strategy NostalgiaForInfinityX/g' /home/smurf/freqtrade/docker-compose.yml
+    - name: Start Docker
+      command: docker-compose -f /home/smurf/freqtrade/docker-compose.yml up -d
