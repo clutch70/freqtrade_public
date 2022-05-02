@@ -22,8 +22,8 @@
     - name: Load New Strategies
       #become: yes
       copy:
-        src: /ft_info/freqtrade_public/strats
-        dest: /home/smurf/freqtrade/user_data/strategies
+        src: /ft_info/freqtrade_public/strats/
+        dest: /home/smurf/freqtrade/user_data/strategies/
       
       #  src: "{{ item }}"
       #  dest: /home/smurf/freqtrade/user_data/strategies
