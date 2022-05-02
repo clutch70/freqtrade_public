@@ -1,0 +1,6 @@
+
+- name: Start Trading Bots
+  hosts: genOneBots
+  tasks:
+    - name: Start Freqtrade
+      command: docker-compose -f /home/smurf/docker-compose.yaml up -d
