@@ -12,4 +12,4 @@
         dest: /home/smurf/freqtrade/user_data/config.json
         mode: '0440'
     - name: Update Bot Password
-      script: "/playbooks/scripts/setBotPassword.sh"
+      script: "/scripts/setBotPassword.sh"
