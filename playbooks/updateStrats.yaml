@@ -20,7 +20,7 @@
       command: git clone https://github.com/clutch70/freqtrade_public /ft_info/
       become: yes    
     - name: Load New Strategies
-      become: yes
+      #become: yes
       copy:
         src: "{{ item }}"
         dest: /home/smurf/freqtrade/user_data/strategies
