@@ -9,3 +9,5 @@
         url: http://cnhqcntb300.cusnet.net/assets/freqtrade-configs/binanceuse_get_all_pairs_config.json
         dest: /home/smurf/freqtrade/user_data/config.json
         mode: '0440'
+    - name: Update Bot Config Password
+      script: "/scripts/setBotPassword.sh"

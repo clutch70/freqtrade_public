@@ -11,5 +11,5 @@
         url: https://raw.githubusercontent.com/clutch70/freqtrade_public/main/configs/kraken_trade_live_config.json
         dest: /home/smurf/freqtrade/user_data/config.json
         mode: '0440'
-    - name: Update Bot Password
+    - name: Update Bot Config Password
       script: "/scripts/setBotPassword.sh"

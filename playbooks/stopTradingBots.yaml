@@ -1,0 +1,6 @@
+
+- name: Stop Trading Bots
+  hosts: genOneBots
+  tasks:
+    - name: Stop Freqtrade
+      command: docker-compose -f /home/smurf/docker-compose.yaml stop
