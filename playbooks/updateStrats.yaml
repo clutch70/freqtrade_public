@@ -1,0 +1,29 @@
+
+- name: Update Strategies Collection
+  hosts: krakenTradingBots
+  tasks:
+    - name: Install Git
+      apt:
+        name: git
+        state: present
+    - name: Make Repo Folder
+      file:
+        path: /ft_info
+        state: directory
+        mode: '0755'    
+    - name: Clone Repo
+      command: git clone https://github.com/clutch70/freqtrade_public /ft_info/
+      become: yes    
+    - name: Load New Strategies
+      copy:
+        src: "{{ item }}"
+        dest: /home/smurf/freqtrade/user_data/strategies
+        owner: root
+        mode: 600
+      with_fileglob:
+        - /ft_info/freqtrader_info/strats/*
+    - name: Clean Up Repo Folder
+      file:
+        state: absent
+        path: /ft_info/freqtrade_public
+
