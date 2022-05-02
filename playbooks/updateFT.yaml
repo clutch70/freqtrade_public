@@ -1,6 +1,6 @@
 
 - name: Download NostalgiaForInfinityX to FreqTrade Bots
-  hosts: CNHQTB400.CUSNET.NET
+  hosts: krakenTradingBots
   tasks:
     - name: Stop Freqtrade
       command: docker-compose -f /home/smurf/docker-compose.yaml stop
