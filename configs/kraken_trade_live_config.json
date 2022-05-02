@@ -52,7 +52,8 @@
             "number_assets": 80,
             "sort_key": "quoteVolume",
             "min_value": 0,
-            "refresh_period": 1800
+            "refresh_period": 1800,
+            "min_days_listed": 100
         }
     ],
     "edge": {
