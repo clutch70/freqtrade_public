@@ -3,8 +3,8 @@
   hosts: krakenTradingBots
   tasks:
     - name: Stop Freqtrade
-      command: docker-compose -f /home/smurf/freqtrade/docker-compose.yaml stop
+      command: docker-compose -f /home/smurf/freqtrade/docker-compose.yml stop
     - name: Update Freqtrade
       command: docker pull freqtradeorg/freqtrade:stable
     - name: Start Freqtrade
-      command: docker-compose -f /home/smurf/freqtrade/docker-compose.yaml up -d
+      command: docker-compose -f /home/smurf/freqtrade/docker-compose.yml up -d
