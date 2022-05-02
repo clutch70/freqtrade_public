@@ -2,32 +2,35 @@
 - name: Update Strategies Collection
   hosts: cnhqtb401.dmz.cusnet.net
   tasks:
-    - name: Update Apt
-      command: apt update
-      become: yes    
-    - name: Install Git
-      become: yes
-      apt:
-        name: git
-        state: present
-    - name: Make Repo Folder
-      become: yes
-      file:
-        path: /ft_info
-        state: directory
-        mode: '0755'    
-    - name: Clone Repo
-      command: git clone https://github.com/clutch70/freqtrade_public /ft_info/
-      become: yes    
+#    - name: Update Apt
+#      command: apt update
+#      become: yes    
+#    - name: Install Git
+#      become: yes
+#      apt:
+#        name: git
+#        state: present
+#    - name: Make Repo Folder
+#      become: yes
+#      file:
+#        path: /ft_info
+#        state: directory
+#        mode: '0755'    
+#    - name: Clone Repo
+#      command: git clone https://github.com/clutch70/freqtrade_public /ft_info/
+#      become: yes    
     - name: Load New Strategies
       #become: yes
       copy:
-        src: "{{ item }}"
+        src: /ft_info/freqtrade_public/strats
         dest: /home/smurf/freqtrade/user_data/strategies
-        owner: root
-        mode: 600
-      with_fileglob:
-        - /ft_info/strats/*
+      
+      #  src: "{{ item }}"
+      #  dest: /home/smurf/freqtrade/user_data/strategies
+      #  owner: root
+      #  mode: 600
+      #with_fileglob:
+      #  - /ft_info/strats/*
 #    - name: Clean Up Repo Folder
 #      become: yes
 #      file:
