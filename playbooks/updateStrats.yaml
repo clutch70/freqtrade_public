@@ -9,7 +9,6 @@
       apt:
         name: git
         state: present
-        become: yes
     - name: Make Repo Folder
       file:
         path: /ft_info
