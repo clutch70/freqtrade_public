@@ -43,7 +43,8 @@
 
         ],
         "pair_blacklist": [
-
+            "US.*/USD",
+            ".*/BTC"
         ]
     },
     "pairlists": [
