@@ -1,8 +1,12 @@
 
 - name: Download Kucoin Pairs
-  hosts: kucoinTradingBots
+  hosts: cnhqtb502.dmz.cusnet.net
   tasks:
-    - name: Download
+    - name: Create Folder
+      file:
+        path: /home/smurf/freqtrade/user_data/pairs
+        state: directory
+    - name: Download Kucoin Pairs File
       get_url:
         url: https://raw.githubusercontent.com/clutch70/freqtrade_public/main/pairs/kucoin_pairs.json
         dest: /home/smurf/freqtrade/user_data/pairs/kucoin_pairs.json
