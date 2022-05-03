@@ -1,0 +1,9 @@
+
+- name: Download Kucoin Pairs
+  hosts: kucoinTradingBots
+  tasks:
+    - name: Download
+      get_url:
+        url: https://raw.githubusercontent.com/clutch70/freqtrade_public/main/pairs/kucoin_pairs.json
+        dest: /home/smurf/freqtrade/user_data/pairs/kucoin_pairs.json
+        mode: '0440'
