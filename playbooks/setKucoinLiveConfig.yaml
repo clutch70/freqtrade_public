@@ -1,0 +1,15 @@
+
+- name: Download Kucoin Live Config to FreqTrade Bots
+  hosts: kucoinTradingBots
+  tasks:
+    - name: Remove Old Config
+      file:
+        path: /home/smurf/freqtrade/user_data/config.json
+        state: absent
+    - name: Download
+      get_url:
+        url: https://raw.githubusercontent.com/clutch70/freqtrade_public/main/configs/kucoin_trade_live_config.json
+        dest: /home/smurf/freqtrade/user_data/config.json
+        mode: '0440'
+    - name: Update Bot Config Password
+      script: "/scripts/setBotPassword.sh"
