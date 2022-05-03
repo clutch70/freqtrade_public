@@ -1,9 +1,9 @@
 {
     "max_open_trades": 10,
-    "stake_currency": "USD",
+    "stake_currency": "USDT",
     "stake_amount": 100,
     "tradable_balance_ratio": 0.99,
-    "fiat_display_currency": "USD",
+    "fiat_display_currency": "USDT",
     "dry_run": true,
     "cancel_open_orders_on_exit": false,
     "unfilledtimeout": {
@@ -43,7 +43,8 @@
 
         ],
         "pair_blacklist": [
-            "US.*/USD",
+            "US.*/USDT",
+            "DAI/USDT",
             ".*/BTC"
         ]
     },
