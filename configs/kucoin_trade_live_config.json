@@ -27,7 +27,7 @@
         "use_order_book": true,
         "order_book_top": 1
     },
-    "download_trades": true,
+    //"download_trades": true,
     "exchange": {
         "name": "kucoin",
         "key": "",
@@ -35,7 +35,7 @@
         "ccxt_config": {"enableRateLimit": true},
         "ccxt_async_config": {
             "enableRateLimit": true,
-            "rateLimit": 100
+            "rateLimit": 3100
             // Enable the below for downoading data.
             //"rateLimit": 3100
         },

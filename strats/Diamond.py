@@ -39,6 +39,14 @@
 # freqtrade hyperopt --hyperopt-loss OnlyProfitHyperOptLoss --spaces buy sell roi trailing stoploss --strategy Diamond -j 2 -e 10
 # *    7/10:    117 trades. 74/41/2 Wins/Draws/Losses. Avg profit   1.91%. Median profit   1.50%. Total profit  0.07370921 BTC (  73.71%). Avg duration 9:26:00 min. Objective: -0.07371
 
+
+#CN Notes
+#5-3-22 Sells when in the green quickly, hasn't sold any trades in the red yet but many open trades are deeply red
+#noticing that trades that have been long red immediately get closed as soon as they're just a little green, this feels desireable
+#handled the market dip 5-3-22 pretty well
+
+
+
 # --- Do not remove these libs ---
 from freqtrade.strategy.hyper import CategoricalParameter, DecimalParameter, IntParameter
 from freqtrade.strategy.interface import IStrategy
