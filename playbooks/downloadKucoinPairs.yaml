@@ -11,3 +11,23 @@
         url: https://raw.githubusercontent.com/clutch70/freqtrade_public/main/pairs/kucoin_pairs.json
         dest: /home/smurf/freqtrade/user_data/pairs/kucoin_pairs.json
         mode: '0440'
+    - name: Download Kucoin All Pairs File
+      get_url:
+        url: https://raw.githubusercontent.com/clutch70/freqtrade_public/main/pairs/kucoin_all_pairs.json
+        dest: /home/smurf/freqtrade/user_data/pairs/kucoin_all_pairs.json
+        mode: '0440'
+    - name: Download Kraken All Pairs File
+      get_url:
+        url: https://raw.githubusercontent.com/clutch70/freqtrade_public/main/pairs/kraken_all_pairs.json
+        dest: /home/smurf/freqtrade/user_data/pairs/kraken_all_pairs.json
+        mode: '0440'
+    - name: Download Binanceus All Pairs File
+      get_url:
+        url: https://raw.githubusercontent.com/clutch70/freqtrade_public/main/pairs/binanceus_all_pairs.json
+        dest: /home/smurf/freqtrade/user_data/pairs/binanceus_all_pairs.json
+        mode: '0440'
+    - name: Download Bitfinex All Pairs File
+      get_url:
+        url: https://raw.githubusercontent.com/clutch70/freqtrade_public/main/pairs/bitfinex_all_pairs.json
+        dest: /home/smurf/freqtrade/user_data/pairs/bitfinex_all_pairs.json
+        mode: '0440'
