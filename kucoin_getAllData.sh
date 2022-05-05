@@ -25,37 +25,15 @@
 
 
 #Year of 2021
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 5m --timerange 20210101-20210401 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 5m --timerange 20210401-20210701 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 5m --timerange 20210701-20211001 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 5m --timerange 20211001-20220101 --pairs-file user_data/pairs/kucoin_pairs.json
+docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 5m --timerange 20210101-20220101 --pairs-file user_data/pairs/kucoin_all_pairs.json
+docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 15m --timerange 20210101-20220101 --pairs-file user_data/pairs/kucoin_all_pairs.json
+docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1h --timerange 20210101-20220101 --pairs-file user_data/pairs/kucoin_all_pairs.json
+docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1d --timerange 20210101-20220101 --pairs-file user_data/pairs/kucoin_all_pairs.json
 
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 15m --timerange 20210101-20210401 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 15m --timerange 20210401-20210701 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 15m --timerange 20210701-20211001 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 15m --timerange 20211001-20220101 --pairs-file user_data/pairs/kucoin_pairs.json
-
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1h --timerange 20210101-20210401 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1h --timerange 20210401-20210701 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1h --timerange 20210701-20211001 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1h --timerange 20211001-20220101 --pairs-file user_data/pairs/kucoin_pairs.json
-
-
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1d --timerange 20210101-20210401 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1d --timerange 20210401-20210701 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1d --timerange 20210701-20211001 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1d --timerange 20211001-20220101 --pairs-file user_data/pairs/kucoin_pairs.json
 
 
 #Year of 2022
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 5m --timerange 20220101-20220301 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 5m --timerange 20220301- --pairs-file user_data/pairs/kucoin_pairs.json
-
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 15m --timerange 20220101-20220301 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 15m --timerange 20220301- --pairs-file user_data/pairs/kucoin_pairs.json
-
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1h --timerange 20220101-20220301 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1h --timerange 20220301- --pairs-file user_data/pairs/kucoin_pairs.json
-
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1d --timerange 20220101-20220301 --pairs-file user_data/pairs/kucoin_pairs.json
-docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1d --timerange 20220301- --pairs-file user_data/pairs/kucoin_pairs.json
+docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 5m --timerange 20220101- --pairs-file user_data/pairs/kucoin_all_pairs.json
+docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 15m --timerange 20220101- --pairs-file user_data/pairs/kucoin_all_pairs.json
+docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1h --timerange 20220101- --pairs-file user_data/pairs/kucoin_all_pairs.json
+docker-compose run --rm freqtrade download-data --user-data-dir user_data --exchange kucoin -t 1d --timerange 20220101- --pairs-file user_data/pairs/kucoin_all_pairs.json
