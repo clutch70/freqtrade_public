@@ -6,6 +6,10 @@
       file:
         path: /home/smurf/freqtrade/user_data/strategies/pushover
         state: directory
+    - name: Delete Old Pushover
+      file:
+        path: /home/smurf/freqtrade/user_data/strategies/pushover/pushover.py
+        state: absent
     - name: Download Pushover Script
       get_url:
         url: https://raw.githubusercontent.com/clutch70/pushover/main/pushover.py
