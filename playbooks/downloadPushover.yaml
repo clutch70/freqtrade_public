@@ -1,6 +1,6 @@
 
 - name: Download Pushover Script
-  hosts: genOneBots
+  hosts: krakenTradingBots, kucoinTradingBots
   tasks:
     - name: Create Folder
       file:
