@@ -6,7 +6,7 @@
       file:
         path: /home/smurf/freqtrade/user_data/strategies/pushover
         state: directory
-    - name: Download Kucoin Pairs File
+    - name: Download Pushover Script
       get_url:
         url: https://raw.githubusercontent.com/clutch70/pushover/main/pushover.py
         dest: /home/smurf/freqtrade/user_data/strategies/pushover
