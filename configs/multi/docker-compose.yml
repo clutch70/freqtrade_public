@@ -1,0 +1,114 @@
+---
+version: '3'
+services:
+  freqtrade1:
+    image: freqtradeorg/freqtrade:stable
+    # image: freqtradeorg/freqtrade:develop
+    # Use plotting image
+    # image: freqtradeorg/freqtrade:develop_plot
+    # Build step - only needed when additional dependencies are needed
+    # build:
+    #   context: .
+    #   dockerfile: "./docker/Dockerfile.custom"
+    restart: unless-stopped
+    container_name: freqtrade1
+    volumes:
+      - "./user_data:/freqtrade/user_data"
+    # Expose api on port 8080 (localhost only)
+    # Please read the https://www.freqtrade.io/en/stable/rest-api/ documentation
+    # before enabling this.
+    ports:
+      - "8081:8081"
+    # Default command used when running `docker compose up`
+    command: >
+      trade
+      --logfile /freqtrade/user_data/logs/freqtrade1.log
+      --db-url sqlite:////freqtrade/user_data/tradesv3-1.sqlite
+      --config user_data/pairlists.json
+      --config user_data/blacklist-kucoin.json
+      --config user_data/configs/api/api1.json
+      --config user_data/configs/pairlists/a-d_usdt_pairs.json
+      --strategy NostalgiaForInfinityX
+
+  freqtrade2:
+    image: freqtradeorg/freqtrade:stable
+    restart: unless-stopped
+    container_name: freqtrade2
+    volumes:
+      - "./user_data:/freqtrade/user_data"
+    ports:
+      - "8082:8082"
+    # Default command used when running `docker compose up`
+    command: >
+      trade
+      --logfile /freqtrade/user_data/logs/freqtrade2.log
+      --db-url sqlite:////freqtrade/user_data/tradesv3-2.sqlite
+      --config user_data/pairlists.json
+      --config user_data/blacklist-kucoin.json
+      --config user_data/configs/api/api2.json
+      --config user_data/configs/pairlists/e-j_usdt_pairs.json
+      --strategy NostalgiaForInfinityX
+
+  freqtrade3:
+    image: freqtradeorg/freqtrade:stable
+    restart: unless-stopped
+    container_name: freqtrade3
+    volumes:
+      - "./user_data:/freqtrade/user_data"
+    ports:
+      - "8083:8083"
+    # Default command used when running `docker compose up`
+    command: >
+      trade
+      --logfile /freqtrade/user_data/logs/freqtrade3.log
+      --db-url sqlite:////freqtrade/user_data/tradesv3-3.sqlite
+      --config user_data/pairlists.json
+      --config user_data/blacklist-kucoin.json
+      --config user_data/configs/api/api3.json
+      --config user_data/configs/pairlists/k-o_usdt_pairs.json
+      --strategy NostalgiaForInfinityX
+
+  freqtrade4:
+    image: freqtradeorg/freqtrade:stable
+    restart: unless-stopped
+    container_name: freqtrade4
+    volumes:
+      - "./user_data:/freqtrade/user_data"
+    ports:
+      - "8084:8084"
+    # Default command used when running `docker compose up`
+    command: >
+      trade
+      --logfile /freqtrade/user_data/logs/freqtrade4.log
+      --db-url sqlite:////freqtrade/user_data/tradesv3-4.sqlite
+      --config user_data/pairlists.json
+      --config user_data/blacklist-kucoin.json
+      --config user_data/configs/api/api4.json
+      --config user_data/configs/pairlists/p-t_usdt_pairs.json
+      --strategy NostalgiaForInfinityX
+
+  freqtrade5:
+      image: freqtradeorg/freqtrade:stable
+      restart: unless-stopped
+      container_name: freqtrade5
+      volumes:
+        - "./user_data:/freqtrade/user_data"
+      ports:
+        - "8085:8085"
+      # Default command used when running `docker compose up`
+      command: >
+        trade
+        --logfile /freqtrade/user_data/logs/freqtrade5.log
+        --db-url sqlite:////freqtrade/user_data/tradesv3-5.sqlite
+        --config user_data/pairlists.json
+        --config user_data/blacklist-kucoin.json
+        --config user_data/configs/api/api5.json
+        --config user_data/configs/pairlists/u-z_usdt_pairs.json
+        --strategy NostalgiaForInfinityX
+
+
+  exchange-proxy:
+    image: mikekonan/exchange-proxy:latest-amd64
+    restart: unless-stopped
+    container_name: exchange-proxy
+    command: -verbose 1
