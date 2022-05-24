@@ -1,0 +1,49 @@
+
+- name: Harden Freqtrade Server
+  become: yes
+  hosts: singleTest
+  tasks:
+    - name: Install Packages
+      apt:
+        pkg:
+        - nginx
+        - ufw
+        - systemd-timesyncd
+        - unattended-upgrades
+        update_cache: yes
+    - name: Allow SSH
+      command: sudo ufw allow ssh/tcp
+    - name: Limit SSH
+      command: sudo ufw limit ssh/tcp
+    - name: Enable Freqtrade API Port
+      command: sudo ufw allow 8081/tcp
+    - name: Enable Freqtrade API Port
+      command: sudo ufw allow 8081/tcp
+    - name: Enable NginX HTTP Port
+      command: sudo ufw allow http
+    - name: Enable NginX HTTPS Port
+      command: sudo ufw allow https
+    - name: Set UFW Logging
+      command: sudo ufw logging mediium
+    - name: Enable Firewall
+      command: sudo ufw enable
+
+
+    - name: Set Timezone
+      command: timedatectl set-timezone America/Chicago
+
+    - name: Copy NTP Config
+      ansible.builtin.copy:
+        src: /files/timesyncd.conf
+        dest: /etc/systemd/timesyncd.conf
+        backup: yes
+
+    - name: Enable NTP Sync
+      command: timedatectl set-ntp true
+
+    - name: Copy NginX Proxy Config
+      ansible.builtin.copy:
+        src: /files/freq_proxy.conf
+        dest: /etc/nginx/conf.d/default.conf
+        backup: yes
+
