@@ -12,4 +12,4 @@
         dest: /home/smurf/freqtrade/user_data/strategies/NostalgiaForInfinity.py
         mode: '0440'
     - name: Restart Freqtrade
-      command: docker-compose -f /bot/freqtrade/docker-compose.yaml restart
+      command: docker-compose -f /bot/freqtrade/docker-compose.yml restart
