@@ -4,12 +4,12 @@
   tasks:
     - name: Remove Old NFI
       file:
-        path: /home/smurf/freqtrade/user_data/strategies/NostalgiaForInfinity.py
+        path: /home/smurf/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
         state: absent
     - name: Download
       get_url:
         url: https://raw.githubusercontent.com/iterativv/NostalgiaForInfinity/main/NostalgiaForInfinityX.py
-        dest: /home/smurf/freqtrade/user_data/strategies/NostalgiaForInfinity.py
+        dest: /home/smurf/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
         mode: '0440'
     - name: Restart Freqtrade
       command: docker restart freqtrade
