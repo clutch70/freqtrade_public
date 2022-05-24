@@ -11,3 +11,5 @@
         url: https://raw.githubusercontent.com/iterativv/NostalgiaForInfinity/main/NostalgiaForInfinityX.py
         dest: /home/smurf/freqtrade/user_data/strategies/NostalgiaForInfinity.py
         mode: '0440'
+    - name: Restart Freqtrade
+      command: docker-compose -f /home/smurf/docker-compose.yaml restart
