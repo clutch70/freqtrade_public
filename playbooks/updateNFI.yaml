@@ -18,5 +18,3 @@
         url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/short/NostalgiaForInfinityX.py
         dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXShort.py
         mode: '0440'
-    - name: Restart Freqtrade
-      command: docker restart freqtrade
