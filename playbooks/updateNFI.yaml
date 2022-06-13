@@ -8,13 +8,17 @@
           - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
           - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXShort.py
         state: absent
-    - name: Download NFI Normal
-      get_url:
-        url: https://raw.githubusercontent.com/iterativv/NostalgiaForInfinity/main/NostalgiaForInfinityX.py
-        dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
-        mode: '0440'
     - name: Download NFI Short
       get_url:
         url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/short/NostalgiaForInfinityX.py
         dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXShort.py
         mode: '0440'
+    - name: Remove Old NFI
+      file:
+        path: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
+    - name: Download NFI Normal
+      get_url:
+        url: https://raw.githubusercontent.com/iterativv/NostalgiaForInfinity/main/NostalgiaForInfinityX.py
+        dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
+        mode: '0440'
+
