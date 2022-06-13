@@ -3,12 +3,14 @@
   hosts: genOneBots
   tasks:
     - name: Remove Old NFI
+      become: yes
       file:
         path:
           - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
           - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXShort.py
         state: absent
     - name: Download NFI Short
+      become: yes
       get_url:
         url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/short/NostalgiaForInfinityX.py
         dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXShort.py
@@ -17,6 +19,7 @@
       file:
         path: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
     - name: Download NFI Normal
+      become: yes
       get_url:
         url: https://raw.githubusercontent.com/iterativv/NostalgiaForInfinity/main/NostalgiaForInfinityX.py
         dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
