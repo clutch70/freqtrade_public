@@ -1,10 +1,36 @@
 
-- name: Download NostalgiaForInfinityX to FreqTrade Bots
-  hosts: krakenTradingBots
+- name: Full Update Freqtrade
+  hosts: genOneBots
   tasks:
     - name: Stop Freqtrade
-      command: docker-compose -f /home/smurf/freqtrade/docker-compose.yml stop
-    - name: Update Freqtrade
-      command: docker pull freqtradeorg/freqtrade:stable
+      command: docker-compose -f /bot/freqtrade/docker-compose.yml stop
+    - name: Build Freqtrade
+      command: docker-compose -f /bot/freqtrade/docker-compose.yml build
+    - name: Pull ExchangeProxy
+      command: docker-compose -f /bot/freqtrade/docker-compose.yml pull
+    - name: Update Bot Config
+      script: "/scripts/updateFtConfig.sh"
+    - name: Remove Old NFI Short
+      become: yes
+      file:
+        path:
+          - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
+          - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXShort.py
+        state: absent
+    - name: Download NFI Short
+      become: yes
+      get_url:
+        url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/short/NostalgiaForInfinityX.py
+        dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXShort.py
+        mode: '0440'
+    - name: Remove Old NFI
+      file:
+        path: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
+    - name: Download NFI Normal
+      become: yes
+      get_url:
+        url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/main/NostalgiaForInfinityX.py
+        dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
+        mode: '0440'
     - name: Start Freqtrade
-      command: docker-compose -f /home/smurf/freqtrade/docker-compose.yml up -d
+      command: docker-compose -f /bot/freqtrade/docker-compose.yml up -d
