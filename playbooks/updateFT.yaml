@@ -32,5 +32,11 @@
         url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/main/NostalgiaForInfinityX.py
         dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
         mode: '0440'
+    - name: Download Kucoin Blacklist
+      become: yes
+      get_url:
+        url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/main/configs/blacklist-kucoin.json
+        dest: /bot/freqtrade/user_data/configs/pairlists/blacklist-kucoin.json
+        mode: '0440'
     - name: Start Freqtrade
       command: docker-compose -f /bot/freqtrade/docker-compose.yml up -d
