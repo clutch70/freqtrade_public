@@ -23,16 +23,19 @@
       get_url:
         url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/short/NostalgiaForInfinityX.py
         dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXShort.py
+        mode: g=rw,o=rw
     - name: Download NFI Swing
       become: no
       get_url:
         url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/swing/NostalgiaForInfinityX.py
         dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXSwing.py
+        mode: g=rw,o=rw
     - name: Download NFI Normal
       become: no
       get_url:
         url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/main/NostalgiaForInfinityX.py
         dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
+        mode: g=rw,o=rw
     - name: Download Kucoin Blacklist
       become: no
       get_url:
