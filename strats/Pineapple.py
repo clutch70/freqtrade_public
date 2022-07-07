@@ -1,7 +1,7 @@
 import freqtrade.vendor.qtpylib.indicators as qtpylib
 import numpy as np
 import talib.abstract as ta
-from freqtrade.strategy import (IStrategy, informative)
+from freqtrade.strategy import (IStrategy, informative, DecimalParameter)
 from pandas import DataFrame, Series
 import talib.abstract as ta
 import math
