@@ -1,3 +1,4 @@
 pushover_api
 strats/pushover_api
 configs/webhooks.json
+modules.xml
