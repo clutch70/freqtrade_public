@@ -3,10 +3,10 @@
   hosts: genOneBots
   tasks:
     - name: Get Database IP
-      shell: 'source /bot/freqtrade/.env && echo $FTDBIP'
+      shell: 'source ~/.env && echo $FTDBIP'
       register: FTDBIP
     - name: Get Database Password
-      shell: 'source /bot/freqtrade/.env && echo $FTDBPW'
+      shell: 'source ~/.env && echo $FTDBPW'
       register: FTDBPW
     - debug: msg="The FTDBIP is {{  FTDBIP.stdout  }}"
     - name: Stop FT Containers
