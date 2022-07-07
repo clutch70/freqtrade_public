@@ -10,12 +10,13 @@
       command: docker-compose -f /bot/freqtrade/docker-compose.yml pull
     - name: Update Bot Config
       script: "/scripts/updateFtConfig.sh"
-    - name: Remove Old NFI Short
+    - name: Remove Old NFI Strats
       become: yes
       file:
         path:
           - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
           - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXShort.py
+          - - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXSwing.py
         state: absent
     - name: Download NFI Short
       become: yes
