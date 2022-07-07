@@ -3,7 +3,7 @@
   hosts: genOneBots
   tasks:
     - name: Stop Freqtrade
-      command: docker-compose -f /bot/freqtrade/docker-compose.yml stop
+      command: docker-compose -f /bot/freqtrade/docker-compose.yml down
     - name: Build Freqtrade
       command: docker-compose -f /bot/freqtrade/docker-compose.yml build
     - name: Pull ExchangeProxy
@@ -22,6 +22,12 @@
       get_url:
         url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/short/NostalgiaForInfinityX.py
         dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXShort.py
+        mode: '0440'
+    - name: Download NFI Swing
+      become: yes
+      get_url:
+        url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/swing/NostalgiaForInfinityX.py
+        dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXSwing.py
         mode: '0440'
     - name: Remove Old NFI
       file:
