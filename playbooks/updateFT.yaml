@@ -11,7 +11,7 @@
     - name: Update Bot Config
       script: "/scripts/updateFtConfig.sh"
     - name: Remove Old NFI Strats
-      become: yes
+      become: no
       file:
         path:
           - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
@@ -19,13 +19,13 @@
           - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXSwing.py
         state: absent
     - name: Download NFI Short
-      become: yes
+      become: no
       get_url:
         url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/short/NostalgiaForInfinityX.py
         dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXShort.py
         mode: '0440'
     - name: Download NFI Swing
-      become: yes
+      become: no
       get_url:
         url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/swing/NostalgiaForInfinityX.py
         dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXSwing.py
@@ -34,19 +34,19 @@
       file:
         path: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
     - name: Download NFI Normal
-      become: yes
+      become: no
       get_url:
         url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/main/NostalgiaForInfinityX.py
         dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
         mode: '0440'
     - name: Download Kucoin Blacklist
-      become: yes
+      become: no
       get_url:
         url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/main/configs/blacklist-kucoin.json
         dest: /bot/freqtrade/user_data/configs/pairlists/blacklist-kucoin.json
         mode: '0440'
     - name: Download Kucoin Whitelist
-      become: yes
+      become: no
       get_url:
         url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinityData/main/kucoin-usdt-static.json
         dest: /bot/freqtrade/user_data/configs/pairlists/kucoin-usdt-static.json
