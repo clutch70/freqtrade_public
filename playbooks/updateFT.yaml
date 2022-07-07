@@ -2,26 +2,33 @@
 - name: Full Update Freqtrade
   hosts: genOneBots
   tasks:
-    - name: Stop Freqtrade
-      command: docker-compose -f /bot/freqtrade/docker-compose.yml stop
+    - name: Tear Down FT Containers
+      command: docker-compose -f /bot/freqtrade/docker-compose.yml down
     - name: Build Freqtrade
       command: docker-compose -f /bot/freqtrade/docker-compose.yml build
     - name: Pull ExchangeProxy
       command: docker-compose -f /bot/freqtrade/docker-compose.yml pull
     - name: Update Bot Config
       script: "/scripts/updateFtConfig.sh"
-    - name: Remove Old NFI Short
+    - name: Remove Old NFI Strats
       become: yes
       file:
         path:
           - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
           - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXShort.py
+          - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXSwing.py
         state: absent
     - name: Download NFI Short
       become: yes
       get_url:
         url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/short/NostalgiaForInfinityX.py
         dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXShort.py
+        mode: '0440'
+    - name: Download NFI Swing
+      become: yes
+      get_url:
+        url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinity/swing/NostalgiaForInfinityX.py
+        dest: /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXSwing.py
         mode: '0440'
     - name: Remove Old NFI
       file:
