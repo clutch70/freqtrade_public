@@ -16,7 +16,7 @@
         path:
           - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityX.py
           - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXShort.py
-          - - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXSwing.py
+          - /bot/freqtrade/user_data/strategies/NostalgiaForInfinityXSwing.py
         state: absent
     - name: Download NFI Short
       become: yes
