@@ -2,7 +2,7 @@
 - name: Full Update Freqtrade
   hosts: genOneBots
   tasks:
-    - name: Stop Freqtrade
+    - name: Tear Down FT Containers
       command: docker-compose -f /bot/freqtrade/docker-compose.yml down
     - name: Build Freqtrade
       command: docker-compose -f /bot/freqtrade/docker-compose.yml build
