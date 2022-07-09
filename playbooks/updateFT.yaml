@@ -10,7 +10,7 @@
       register: FTDBPW
     - debug: msg="The FTDBIP is {{  FTDBIP.stdout  }}"
     - name: Stop FT Containers
-      command: docker-compose -f /bot/freqtrade/docker-compose.yml stop
+      command: docker-compose -f /bot/freqtrade/docker-compose.yml down
     - name: Build Freqtrade
       command: docker-compose -f /bot/freqtrade/docker-compose.yml build
     - name: Pull ExchangeProxy
