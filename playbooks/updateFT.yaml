@@ -1,6 +1,6 @@
 
 - name: Full Update Freqtrade
-  hosts: genOneBots
+  hosts: ftProd
   tasks:
     - name: Get Database IP
       shell: 'echo $FTDBIP'
