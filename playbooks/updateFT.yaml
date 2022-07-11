@@ -63,4 +63,3 @@
         mode: g=rw,o=rw
     - name: Start Freqtrade
       command: docker-compose -f /bot/freqtrade/docker-compose.yml up -d
-    - name: Stage CLI Dash
