@@ -13,6 +13,12 @@
       command: docker-compose -f /bot/freqtrade/docker-compose.yml down
     - name: Update Bot Config
       script: "/scripts/updateFtConfig.sh"
+    - name: Download Frogtrade CLI Dash
+      become: no
+      get_url:
+        url: https://raw.githubusercontent.com/clutch70/NostalgiaForInfinityData/main/kucoin-usdt-static.json
+        dest: /bot/freqtrade/user_data/clidash.zip
+        mode: g=rw,o=rw
     - name: Build Freqtrade
       command: docker-compose -f /bot/freqtrade/docker-compose.yml build
     - name: Pull ExchangeProxy
@@ -57,3 +63,4 @@
         mode: g=rw,o=rw
     - name: Start Freqtrade
       command: docker-compose -f /bot/freqtrade/docker-compose.yml up -d
+    - name: Stage CLI Dash
