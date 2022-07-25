@@ -13,6 +13,8 @@ from logging import FATAL
 logger = logging.getLogger(__name__)
 
 class Pineapple (IStrategy):
+    timeframe = "4h"
+
     def version(self) -> str:
         return "v0.0.1"
 
